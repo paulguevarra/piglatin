@@ -17,29 +17,31 @@ $(document).ready(function(){
 
     var userInput1 = $("input#word").val();
     var result = emptyArray;
+    var findQ = consonant.indexOf("q");
+    var findU = vowels.indexOf("u");
+
     for(var i = 0; i < userInput1.length; i++) {
       if(vowels.includes(userInput1.charAt(0))) {
         emptyArray += userInput1 + "way";
-
-      } else if (vowels.includes(userInput1.charAt(i))) {
-        var newInput = userInput1.slice(0,i);
-        var endInput  = userInput1.slice(i, userInput1.length);
-        var total  = endInput + newInput + 'ay';
-        alert(total);
-        return ;
+      } else if (vowels.includes(userInput1.charAt(i))){
+        if (userInput1.charAt(i) === "q" && userInput1.charAt(i+1) === "u") {
+alert("check")
+          // var newInput = userInput1.slice(0,i);
+          // var endInput  = userInput1.slice(i++, userInput1.length);
+          // var total  = endInput + newInput + 'ay';
+          // alert(total);
+          // return ;
+        } else if (vowels.includes(userInput1.charAt(i))) {
+          var newInput = userInput1.slice(0,i);
+          var endInput  = userInput1.slice(i, userInput1.length);
+          var total  = endInput + newInput + 'ay';
+          alert(total);
+          return ;
         // vowels.find(userInput1)
 //alert ("check");
-
-//        work1 = userInput1.slice(0,1);
-//        work2 = userInput1.slice(1, userInput1.length);
-//        emptyArray = work2 + work1 + "ay";
-
-      } else {
-
-
+        }
       }
     }
-
     $("#result").text(result);
   });
 });
